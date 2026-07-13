@@ -1,0 +1,33 @@
+# helix-query.yaml — defines the "query index", a generated JSON feed listing
+# pages and selected properties. EDS builds it from your published pages.
+#
+# WHY THIS MATTERS FOR THE POC (straight from the Confluence doc):
+# Product Bus keys a product by its URL/path, NOT by SKU. But collection/listing
+# tiles link by SKU and don't know the vanity URL. The query index is how you
+# correlate SKU -> path so a tile click can route to the right PDP.
+#
+# Each PDP exposes a <meta name="sku"> (Product Bus emits this); the index below
+# harvests it alongside the path, producing /query-index.json with rows like:
+#   { "path": "/com/de/watch-collection/royal-oak/26545XT.OO.1240XT.01",
+#     "sku": "26545XT.OO.1240XT.01", "title": "...", "image": "..." }
+
+version: 1
+
+indices:
+  products:
+    include:
+      - '/*/*/watch-collection/**'
+    target: /query-index.json
+    properties:
+      sku:
+        select: head > meta[name="sku"]
+        value: attribute(el, 'content')
+      title:
+        select: head > meta[property="og:title"]
+        value: attribute(el, 'content')
+      image:
+        select: head > meta[property="og:image"]
+        value: attribute(el, 'content')
+      lastModified:
+        select: none
+        value: parseTimestamp(headers('last-modified'), 'ddd, DD MMM YYYY hh:mm:ss GMT')

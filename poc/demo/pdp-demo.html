@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ── PLANE 1 (SSR) simulation ─────────────────────────────────────────
+       In production Product Bus emits these <head> tags + JSON-LD server-side.
+       Crawlers/LLMs read exactly this on the first pass, no JS required.
+       Here we hard-code them so you can View-Source and see what PB would emit. -->
+  <title>Royal Oak Flying Tourbillon Chronograph RD#5 | 26545XT.OO.1240XT.01 | Audemars Piguet</title>
+  <meta name="sku" content="26545XT.OO.1240XT.01">
+  <meta name="description" content="Royal Oak Selfwinding Flying Tourbillon Extra-Thin Chronograph RD#5 in Titan und BMG – limitiert auf 150 Exemplare.">
+  <meta property="og:title" content="Royal Oak Flying Tourbillon Chronograph RD#5">
+  <meta property="og:type" content="product">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "sku": "26545XT.OO.1240XT.01",
+    "name": "Royal Oak Selfwinding Flying Tourbillon Extra-Thin Chronograph (RD#5)",
+    "brand": { "@type": "Brand", "name": "Audemars Piguet" },
+    "description": "Auf 150 Exemplare limitierte Edition, die einen Flyback-Chronographen mit einem fliegenden Tourbillon vereint.",
+    "url": "https://www.audemarspiguet.com/com/de/watch-collection/royal-oak/26545XT.OO.1240XT.01.html"
+  }
+  </script>
+
+  <link rel="stylesheet" href="../../styles/styles.css">
+  <link rel="stylesheet" href="../../blocks/product-details/product-details.css">
+  <style>
+    body { display: block; }              /* skip the EDS appear-gate for the demo */
+    .demo-note { max-width: 1100px; margin: 24px auto 0; padding: 12px 24px;
+      background: #fff8e1; border: 1px solid #ffe082; font: 13px/1.5 sans-serif; }
+  </style>
+</head>
+<body>
+  <p class="demo-note">
+    <strong>POC demo.</strong> The product name, reference, description and specs
+    render instantly = the <strong>SSR plane</strong> (what Product Bus pre-renders
+    for crawlers). The price/availability fade in after ~1.2 s = the
+    <strong>dynamic plane</strong> hydrated from a mock Brand&nbsp;Experience&nbsp;API.
+    View-Source to see the head meta + JSON-LD a crawler would read.
+  </p>
+
+  <main>
+    <div class="section">
+      <div class="product-details"></div>
+    </div>
+  </main>
+
+  <script type="module">
+    // Reuse the REAL block code — same functions that run in production EDS.
+    import { renderStatic, hydrate } from '../../blocks/product-details/product-details.js';
+
+    const block = document.querySelector('.product-details');
+
+    // Load the same Product Bus payload we would PUT to PB.
+    const product = await (await fetch('../products/26545XT.OO.1240XT.01.json')).json();
+
+    // PLANE 1 — instant static render (Product Bus does this server-side).
+    renderStatic(block, product);
+
+    // PLANE 2 — mock Brand Experience API, delayed so you can SEE hydration.
+    const mockBrandExperienceApi = (sku) => new Promise((resolve) => {
+      setTimeout(() => resolve({ sku, price: '', currency: 'EUR', inStock: false }), 1200);
+    });
+    hydrate(block, { fetcher: mockBrandExperienceApi });
+  </script>
+</body>
+</html>

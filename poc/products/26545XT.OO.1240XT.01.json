@@ -1,0 +1,42 @@
+{
+  "_comment": "Product Bus payload for one Audemars Piguet PDP (German store view). This is the body of the PUT to https://api.adobecommerce.live/$ORG/$SITE/catalog/$STORE/$VIEW/products/26545XT.OO.1240XT.01.json. Per PB rules ALL values are strings. `path` pins the vanity URL so the existing SEO URL is preserved (the URL is PB's primary key, not the SKU). The `attributes` array carries the informational spec content that gets pre-rendered; live price/availability are intentionally left for the Brand Experience API to hydrate, since AP PDPs are informational.",
+
+  "sku": "26545XT.OO.1240XT.01",
+  "name": "Royal Oak Selfwinding Flying Tourbillon Extra-Thin Chronograph (RD#5)",
+  "urlKey": "26545XT.OO.1240XT.01",
+  "path": "/com/de/watch-collection/royal-oak/26545XT.OO.1240XT.01",
+  "storeCode": "com",
+  "storeViewCode": "de",
+
+  "description": "Auf 150 Exemplare limitierte Edition, die einen Flyback-Chronographen mit einem fliegenden Tourbillon vereint. Gehäuse aus Titan und Bulk Metallic Glass (BMG) für außergewöhnliche Leichtigkeit und Widerstandsfähigkeit.",
+
+  "metaTitle": "Royal Oak Flying Tourbillon Chronograph RD#5 | 26545XT.OO.1240XT.01 | Audemars Piguet",
+  "metaDescription": "Entdecken Sie die Royal Oak Selfwinding Flying Tourbillon Extra-Thin Chronograph RD#5 in Titan und BMG – limitiert auf 150 Exemplare.",
+
+  "currency": "EUR",
+  "inStock": "false",
+  "gtin": "",
+
+  "images": [
+    {
+      "url": "",
+      "label": "Royal Oak Flying Tourbillon Chronograph RD#5",
+      "roles": ["thumbnail", "small", "image"]
+    }
+  ],
+
+  "attributes": [
+    { "name": "reference",   "label": "Referenz",         "value": "26545XT.OO.1240XT.01" },
+    { "name": "collection",  "label": "Kollektion",       "value": "Royal Oak" },
+    { "name": "case",        "label": "Gehäuse",          "value": "41 mm, Titan und Bulk Metallic Glass (BMG)" },
+    { "name": "movement",    "label": "Uhrwerk",          "value": "Kaliber 2968, Automatik, fliegendes Tourbillon, Flyback-Chronograph" },
+    { "name": "water",       "label": "Wasserdichtigkeit","value": "30 m" },
+    { "name": "edition",     "label": "Limitierung",      "value": "150 Exemplare" },
+    { "name": "dial",        "label": "Zifferblatt",      "value": "BMG, „Grande Tapisserie“-Muster" }
+  ],
+
+  "collection": {
+    "name": "Royal Oak",
+    "path": "/com/de/watch-collection/royal-oak"
+  }
+}

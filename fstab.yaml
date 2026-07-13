@@ -1,0 +1,15 @@
+# fstab.yaml — tells Edge Delivery Services WHERE your content lives.
+#
+# EDS itself holds no content. Every page is authored in a "content source"
+# and EDS pulls from it. The classic sources are Google Drive and SharePoint;
+# the newer, code-friendly one is Document Authoring (DA) at da.live.
+#
+# For this POC we mount DA as the root of the site. Replace <YOUR_DA_ORG> with
+# the org you create at https://da.live (step 2 in the README).
+#
+# Anything authored under content.da.live/<org>/ap-eds-poc/ is served by EDS.
+# Product Detail Pages are the exception: Product Bus renders those, so the
+# PDP paths are served by PB, not by a DA document (see README "Two planes").
+
+mountpoints:
+  /: https://content.da.live/<YOUR_DA_ORG>/ap-eds-poc/
