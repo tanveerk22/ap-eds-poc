@@ -1,0 +1,39 @@
+<!-- Sample PDP for local dev via `aem up --html-folder drafts`.
+     This simulates the PRODUCTION path: it mimics the SSR markup + JSON-LD that
+     Product Bus delivers at this URL. Because the .pdp-info markup is already
+     present, product-details.js SKIPS client rendering and only runs hydrate()
+     (which calls the Brand Experience API — here it fails gracefully, and the
+     SSR content stands: exactly the resilience the two-plane model provides).
+     Served at: /com/de/watch-collection/royal-oak/26545XT.OO.1240XT.01 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "sku": "26545XT.OO.1240XT.01",
+  "name": "Royal Oak Selfwinding Flying Tourbillon Extra-Thin Chronograph (RD#5)",
+  "brand": { "@type": "Brand", "name": "Audemars Piguet" },
+  "description": "Auf 150 Exemplare limitierte Edition, die einen Flyback-Chronographen mit einem fliegenden Tourbillon vereint.",
+  "url": "https://www.audemarspiguet.com/com/de/watch-collection/royal-oak/26545XT.OO.1240XT.01.html"
+}
+</script>
+<div class="product-details">
+  <div class="pdp-gallery">
+    <div class="pdp-placeholder">Image served from DAM</div>
+  </div>
+  <div class="pdp-info">
+    <p class="pdp-reference">26545XT.OO.1240XT.01</p>
+    <h1 class="pdp-name">Royal Oak Selfwinding Flying Tourbillon Extra-Thin Chronograph (RD#5)</h1>
+    <p class="pdp-description">Auf 150 Exemplare limitierte Edition, die einen Flyback-Chronographen mit einem fliegenden Tourbillon vereint. Gehäuse aus Titan und Bulk Metallic Glass (BMG).</p>
+    <dl class="pdp-specs">
+      <div class="pdp-spec"><dt>Referenz</dt><dd>26545XT.OO.1240XT.01</dd></div>
+      <div class="pdp-spec"><dt>Kollektion</dt><dd>Royal Oak</dd></div>
+      <div class="pdp-spec"><dt>Gehäuse</dt><dd>41 mm, Titan und BMG</dd></div>
+      <div class="pdp-spec"><dt>Uhrwerk</dt><dd>Kaliber 2968, fliegendes Tourbillon, Flyback-Chronograph</dd></div>
+      <div class="pdp-spec"><dt>Limitierung</dt><dd>150 Exemplare</dd></div>
+    </dl>
+    <div class="pdp-dynamic" data-sku="26545XT.OO.1240XT.01" data-currency="EUR">
+      <span class="pdp-price" data-hydrate="price">…</span>
+      <span class="pdp-availability" data-hydrate="availability"></span>
+    </div>
+  </div>
+</div>

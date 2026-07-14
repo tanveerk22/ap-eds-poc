@@ -72,13 +72,18 @@ You'll see the static product content render instantly (SSR plane), then the
 price/availability fade in after ~1.2 s (dynamic plane). **View-Source** shows
 the `<head>` meta + JSON-LD a crawler reads — the whole point of pre-render.
 
-**Or run the real EDS runtime** (once you've done the DA/GitHub steps below):
+**Or run the real EDS runtime with local sample content** (no accounts):
 ```bash
 npm install
-npx -y @adobe/aem-cli up          # serves the actual project at http://localhost:3000
+npx -y @adobe/aem-cli up --html-folder drafts --no-open   # http://localhost:3000
+# home: /   ·   sample PDP: /com/de/watch-collection/royal-oak/26545XT.OO.1240XT.01
 ```
-`aem up` serves your local code against previewed DA content. Product Bus PDPs
-appear once products are pushed (Step 4) and the PB routing is connected.
+The `drafts/` PDP simulates the markup Product Bus delivers, so the block runs
+its real production path (skip client render → hydrate). Product Bus PDPs go
+live once products are pushed (Step 4) and PB routing is connected.
+
+> **Completing the POC:** follow `docs/poc-completion-runbook.md` (phases + owners
+> + go/no-go criteria). Verify a live PDP with `poc/verify.sh`.
 
 ---
 
