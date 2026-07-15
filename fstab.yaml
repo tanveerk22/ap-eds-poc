@@ -12,8 +12,8 @@
 # PDP paths are served by PB, not by a DA document (see README "Two planes").
 
 mountpoints:
-  /: https://content.da.live/tanveerk22/ap-eds-poc/
+  /: https://content.da.live/aem-sandbox/ap-eds-da-poc
 
-  
+
 
 
