@@ -12,4 +12,4 @@
 # PDP paths are served by PB, not by a DA document (see README "Two planes").
 
 mountpoints:
-  /: https://content.da.live/tanveerk22/ap-eds-poc/
+  /: https://da.live/#/tanveerk22/ap-eds-poc
